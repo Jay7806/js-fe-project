@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./assets/Header";
 import Navbar from "./assets/Navbar";
 import Articles from "./assets/Articles";
+import Home from "./assets/Home";
+import SingleArticle from "./assets/SingleArticle";
 
 function App() {
     return (
@@ -12,8 +14,9 @@ function App() {
         <Header />
         <Navbar />
         <Routes>
-          <Route path="/home" element={<Articles />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/:article_id" element={<SingleArticle />} />
         </Routes>
       </div>
     );

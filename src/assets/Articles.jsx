@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./CSS/Articles.css"
 
 export default function Articles() {
-  const [Articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -14,7 +14,6 @@ export default function Articles() {
     axios
       .get(`https://js-be-project.onrender.com/api/articles`)
       .then((apiResponse) => {
-        console.log(apiResponse.data.article);
         setArticles(apiResponse.data.article);
         setIsLoading(false);
       })
@@ -27,10 +26,10 @@ export default function Articles() {
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
 
-  if (Articles !== undefined) {
+
     return (
       <div className="articlesContainer">
-        {Articles.map((article) => {
+        {articles.map((article) => {
           return (
             <Link
               key={article.article_id}
@@ -46,4 +45,4 @@ export default function Articles() {
       </div>
     );
   }
-}
+

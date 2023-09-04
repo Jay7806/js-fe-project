@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "./CSS/SingleArticle.css"
-import Comments from "./Comments";
+import "./CSS/Comments.css";
 
-export default function SingleArticle() {
+export default function Comments() {
   const { article_id } = useParams();
-  const [article, setArticle] = useState([]);
+  const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -14,9 +13,12 @@ export default function SingleArticle() {
     setIsLoading(true);
     setIsError(false);
     axios
-      .get(`https://js-be-project.onrender.com/api/articles/${article_id}`)
+      .get(
+        `https://js-be-project.onrender.com/api/articles/${article_id}/comments`
+      )
       .then((apiResponse) => {
-        setArticle(apiResponse.data.articles[0]);
+        console.log(apiResponse.data.comments);
+        setComments(apiResponse.data.comments);
         setIsLoading(false);
       })
       .catch(() => {
@@ -24,22 +26,22 @@ export default function SingleArticle() {
         setIsLoading(false);
       });
   }, [article_id]);
+
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
 
-
   return (
-    <>
-      <h2 className="Header">{article.title}</h2>
-      <p>Article Topic: {article.topic}</p>
-      <img className="image" src={article.article_img_url} />
-      <p>{article.body}</p>
-      <div className="extraInfo">
-        <p>Author: {article.author}</p>
-        <p>Votes {article.votes}</p>
-      </div>
-      <Comments />
-    </>
+    <div>
+      <h1>Comments</h1>
+      {comments.map((comment) => {
+        return (
+          <div key={comment.comment_id}>
+            <ul className="comments">
+              <p>{comment.body}</p>
+            </ul>
+          </div>
+        );
+      })}
+    </div>
   );
 }
-

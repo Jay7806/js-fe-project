@@ -1,0 +1,38 @@
+/* .articlesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.article {
+  flex-basis: calc(33.33% - 20px); margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.article img {
+  max-width: 100%;
+  height: auto;
+} */
+
+.articlesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+}
+
+.article {
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.article img {
+  max-width: 100%;
+  height: auto;
+}
+.image {
+  height: 500px;
+  width: 500px;
+  padding: 10px;
+}

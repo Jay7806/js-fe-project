@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CSS/SingleArticle.css";
 import Comments from "./Comments";
-import AddComment from "./AddComments";
+
 
 export default function SingleArticle() {
   const { article_id } = useParams();

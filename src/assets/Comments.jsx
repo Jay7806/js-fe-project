@@ -10,7 +10,7 @@ export default function Comments() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  const fetchComments = () => {
+  useEffect(() => {
     setIsLoading(true);
     setIsError(false);
     axios
@@ -25,39 +25,24 @@ export default function Comments() {
         setIsError(true);
         setIsLoading(false);
       });
-  };
-
-  useEffect(() => {
-    fetchComments();
   }, [article_id]);
-
-  const addComment = (newComment) => {
-    axios
-      .post(
-        `https://js-be-project.onrender.com/api/articles/${article_id}/comments`,
-        { body: newComment, author: 'jessjelly' }
-      )
-      .catch(() => {
-        setIsError(true);
-      });
-  };
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
-
   return (
-    <div>
+    <>
       <h1>Comments</h1>
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <li className="comments" key={comment.comment_id}>
+      {comments.map((comment) => {
+        return (
+          <div key={comment.comment_id}>
+            <ul className="comments">
               <p>{comment.body}</p>
-            </li>
-          );
-        })}
-      </ul>
-      <AddComment addComment={addComment} />
-    </div>
+            </ul>
+            <br></br>
+          </div>
+        );
+      })}
+      <AddComment setComments={setComments} />
+    </>
   );
 }

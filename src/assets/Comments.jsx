@@ -17,7 +17,6 @@ export default function Comments() {
         `https://js-be-project.onrender.com/api/articles/${article_id}/comments`
       )
       .then((apiResponse) => {
-        console.log(apiResponse.data.comments);
         setComments(apiResponse.data.comments);
         setIsLoading(false);
       })

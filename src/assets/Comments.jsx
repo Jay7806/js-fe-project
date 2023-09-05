@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CSS/Comments.css";
+import AddComment from "./AddComments";
 
 export default function Comments() {
   const { article_id } = useParams();
@@ -9,7 +10,7 @@ export default function Comments() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  useEffect(() => {
+  const fetchComments = () => {
     setIsLoading(true);
     setIsError(false);
     axios
@@ -24,7 +25,22 @@ export default function Comments() {
         setIsError(true);
         setIsLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchComments();
   }, [article_id]);
+
+  const addComment = (newComment) => {
+    axios
+      .post(
+        `https://js-be-project.onrender.com/api/articles/${article_id}/comments`,
+        { body: newComment, author: 'jessjelly' }
+      )
+      .catch(() => {
+        setIsError(true);
+      });
+  };
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
@@ -32,15 +48,16 @@ export default function Comments() {
   return (
     <div>
       <h1>Comments</h1>
-      {comments.map((comment) => {
-        return (
-          <div key={comment.comment_id}>
-            <ul className="comments">
+      <ul>
+        {comments.map((comment) => {
+          return (
+            <li className="comments" key={comment.comment_id}>
               <p>{comment.body}</p>
-            </ul>
-          </div>
-        );
-      })}
+            </li>
+          );
+        })}
+      </ul>
+      <AddComment addComment={addComment} />
     </div>
   );
 }

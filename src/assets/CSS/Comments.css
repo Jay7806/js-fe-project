@@ -1,11 +1,14 @@
-.comments{
-    background-color: white;
-    border: black;
-    border-style: solid;
-
-
+.comments {
+  background-color: white;
+  border: black;
+  border-style: solid;
+}
 table {
   width: 100%;
   border-collapse: collapse;
 }
+.AddComment{
+  text-align: center;
+  
+
 }

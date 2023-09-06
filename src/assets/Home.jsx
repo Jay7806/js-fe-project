@@ -31,9 +31,11 @@ const Home = () => {
       <h1 className="headerHome">Welcome to our news page!</h1>
       <br></br>
       <h2 className="subHeader">
-        Here you can read news articles about subjects like Coding, Cooking and
-        Football.
+        Here on our site, you can read news articles about subjects like Coding,
+        Cooking and Football.
       </h2>
+      <br></br>
+      <h3 className="header3">Quick links to topics below</h3>
       <div>
         <div className="topicsContainer">
           {topics.map((topic) => {

@@ -12,9 +12,6 @@ const Navbar = () => {
           <a href="/articles">Articles</a>
         </li>
         <li>
-          <a href="/topics">Topics</a>
-        </li>
-        <li>
           <a href="/authors">Authors</a>
         </li>
         <li style={{ float: "right" }}>

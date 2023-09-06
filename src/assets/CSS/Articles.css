@@ -14,6 +14,14 @@
   height: auto;
     padding: 10px;
 }
+.sorting{
+  display: flex;
+  padding-left: 10px;
+  padding: 10px;
+}
+.sortOrder{
+  padding-left: 10px;
+}
 
 @media only screen and (min-width: 600px) {
   .App {

@@ -1,0 +1,23 @@
+.topicsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.topics {
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.topics img {
+  max-width: 100%;
+  height: auto;
+  padding: 10px;
+  
+}
+
+@media only screen and (min-width: 600px) {
+  .App {
+    grid-template-columns: 25% 75%;
+    grid-template-rows: min-content auto;
+    grid-template-areas: "article" "article img";
+  }
+}

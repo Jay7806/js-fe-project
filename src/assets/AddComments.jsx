@@ -10,6 +10,12 @@ const AddComment = ({ setComments }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (newComment.length <= 5) {
+      alert("Comment must be longer than 10 characters");
+      return;
+    }
+
     const commentToAdd = { body: newComment, author: "jessjelly" };
     setNewComment("");
     setComments((currentComments) => {
@@ -35,15 +41,27 @@ const AddComment = ({ setComments }) => {
 
   return (
     <form className="AddComment" onSubmit={handleSubmit}>
-      <label htmlFor="newComment">Add your comment here</label>
+      {/* <label htmlFor="newComment">Add your comment here</label> */}
+     
       <textarea
         id="newComment"
         value={newComment}
         onChange={(event) => setNewComment(event.target.value)}
       ></textarea>
-      <button type="submit">Add</button>
+      <div className="buttons">
+        <button className="btn" type="submit">
+          <span></span>
+          <p
+            data-start="New comment"
+            data-text="Submit"
+            data-title="Add comment"
+          ></p>
+        </button>
+      </div>
     </form>
   );
 };
 
 export default AddComment;
+
+

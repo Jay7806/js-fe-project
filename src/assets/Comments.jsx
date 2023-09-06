@@ -30,7 +30,7 @@ export default function Comments() {
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
   return (
-    <>
+    <div key={article_id}>
       <h1>Comments</h1>
       {comments.map((comment) => {
         return (
@@ -43,6 +43,6 @@ export default function Comments() {
         );
       })}
       <AddComment setComments={setComments} />
-    </>
+    </div>
   );
 }

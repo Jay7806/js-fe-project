@@ -41,8 +41,6 @@ const AddComment = ({ setComments }) => {
 
   return (
     <form className="AddComment" onSubmit={handleSubmit}>
-      {/* <label htmlFor="newComment">Add your comment here</label> */}
-     
       <textarea
         id="newComment"
         value={newComment}

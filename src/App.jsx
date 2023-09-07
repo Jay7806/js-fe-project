@@ -1,5 +1,3 @@
-import { useState } from "react";
-import "./assets/CSS/App.css";
 import "./assets/CSS/Navbar.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./assets/Header";

@@ -2,6 +2,7 @@ import "./CSS/Home.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "./CSS/Header.css"
 
 const Home = () => {
   const [topics, setTopics] = useState([]);

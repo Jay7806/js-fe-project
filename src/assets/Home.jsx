@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./CSS/Header.css";
+import UrlBase from "./UrlBase";
 
 const Home = () => {
   const [topics, setTopics] = useState([]);
@@ -13,7 +14,7 @@ const Home = () => {
     setIsLoading(false);
     setIsError(false);
     axios
-      .get(`https://js-be-project.onrender.com/api/topics`)
+      .get(`${UrlBase}topics`)
       .then((apiResponse) => {
         setTopics(apiResponse.data.topics);
         setIsLoading(false);

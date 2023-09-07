@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./CSS/Comments.css";
 import AddComment from "./AddComments";
 import CommentActions from "./DeleteComment";
+import UrlBase from "./UrlBase";
 
 export default function Comments() {
   const { article_id } = useParams();
@@ -16,7 +17,7 @@ export default function Comments() {
     setIsError(false);
     axios
       .get(
-        `https://js-be-project.onrender.com/api/articles/${article_id}/comments`
+        `${UrlBase}articles/${article_id}/comments`
       )
       .then((apiResponse) => {
         setComments(apiResponse.data.comments);
@@ -46,6 +47,7 @@ export default function Comments() {
           <div key={comment.comment_id}>
             <ul className="comments">
               <p>{comment.body}</p>
+              <p>Author: {comment.author}</p>
               <span className="time-left">{comment.created_at}</span>
               <div className="comment-actions">
                 <CommentActions

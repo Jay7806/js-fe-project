@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CSS/SingleArticle.css";
 import Comments from "./Comments";
+import UrlBase from "./UrlBase";
 
 export default function SingleArticle() {
   const { article_id } = useParams();
@@ -16,7 +17,7 @@ export default function SingleArticle() {
     setIsLoading(true);
     setIsError(false);
     axios
-      .get(`https://js-be-project.onrender.com/api/articles/${article_id}`)
+      .get(`${UrlBase}articles/${article_id}`)
       .then((apiResponse) => {
         const articleData = apiResponse.data.articles[0];
         setArticle(articleData);
@@ -34,10 +35,7 @@ export default function SingleArticle() {
       setVotes((currentVotes) => currentVotes + 1);
       setVoted(true);
       axios
-        .patch(
-          `https://js-be-project.onrender.com/api/articles/${article_id}`,
-          { inc_votes: 1 }
-        )
+        .patch(`${UrlBase}articles/${article_id}`, { inc_votes: 1 })
         .catch((err) => {
           setVotes((currentVotes) => currentVotes - 1);
           console.log(err);
@@ -47,10 +45,7 @@ export default function SingleArticle() {
       setVotes((currentVotes) => currentVotes - 1);
       setVoted(false);
       axios
-        .patch(
-          `https://js-be-project.onrender.com/api/articles/${article_id}`,
-          { inc_votes: -1 }
-        )
+        .patch(`${UrlBase}articles/${article_id}`, { inc_votes: -1 })
         .catch((err) => {
           setVotes((currentVotes) => currentVotes + 1);
           console.log(err);

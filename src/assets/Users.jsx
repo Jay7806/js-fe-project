@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./CSS/Users.css";
+import UrlBase from "./UrlBase";
 
 const GetUsers = () => {
   const [users, setUsers] = useState([]);
@@ -12,7 +13,7 @@ const GetUsers = () => {
     setIsError(false);
 
     axios
-      .get(`https://js-be-project.onrender.com/api/users`)
+      .get(`${UrlBase}users`)
       .then((apiResponse) => {
         setUsers(apiResponse.data.users);
         setIsLoading(false);

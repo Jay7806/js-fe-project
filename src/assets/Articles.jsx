@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { sortArrayByField } from "./SortBy";
 import "./CSS/Articles.css";
+import UrlBase from "./UrlBase";
 
 export default function Articles() {
   const { topics } = useParams();
@@ -19,14 +20,14 @@ export default function Articles() {
 
     if (topics) {
       axios
-        .get(`https://js-be-project.onrender.com/api/articles?topic=${topics}`)
+        .get(`${UrlBase}articles?topic=${topics}`)
         .then((apiResponse) => {
           setArticles(apiResponse.data.article);
           setIsLoading(false);
         });
     } else {
       axios
-        .get(`https://js-be-project.onrender.com/api/articles`)
+        .get(`${UrlBase}articles`)
         .then((apiResponse) => {
           setArticles(apiResponse.data.article);
           setIsLoading(false);

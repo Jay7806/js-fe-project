@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./CSS/Topics.css";
+import UrlBase from "./UrlBase";
 
 const Topics = () => {
   const [selectTopics, setSelectTopics] = useState([]);
@@ -13,7 +14,7 @@ const Topics = () => {
     setIsLoading(true);
     setIsError(false);
     axios
-      .get(`https://js-be-project.onrender.com/api/articles?topics=${topics}`)
+      .get(`${UrlBase}articles?topics=${topics}`)
       .then((response) => {
         console.log(response.data.article);
         setSelectTopics(response.data.article);

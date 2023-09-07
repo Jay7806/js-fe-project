@@ -1,8 +1,3 @@
-import axios from "axios";
-import { useParams } from "react-router-dom";
-
-
-
 export function sortArrayByField(arr, field, order = "asc") {
   return [...arr].sort((a, b) => {
     if (order === "asc") {

@@ -1,0 +1,28 @@
+.usersContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.users {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  text-align: center;
+  border: solid;
+  font-family: "Raleway", sans-serif;
+}
+.userImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 200px;
+}
+
+@media only screen and (min-width: 600px) {
+  .App {
+    grid-template-columns: 25% 75%;
+    grid-template-rows: min-content auto;
+    grid-template-areas: "users" "userImg";
+  }
+}

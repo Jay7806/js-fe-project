@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import "./CSS/AddComment.css";
 
 const AddComment = ({ setComments }) => {
   const { article_id } = useParams();
@@ -47,7 +48,7 @@ const AddComment = ({ setComments }) => {
         onChange={(event) => setNewComment(event.target.value)}
       ></textarea>
       <div className="buttons">
-        <button className="btn" type="submit">
+        <button className="menu__button" type="submit">
           <span></span>
           <p
             data-start="New comment"
@@ -61,5 +62,3 @@ const AddComment = ({ setComments }) => {
 };
 
 export default AddComment;
-
-

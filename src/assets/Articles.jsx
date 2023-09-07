@@ -10,8 +10,8 @@ export default function Articles() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  // const [sortBy, setSortBy] = useState("date");
-  // const [sortOrder, setSortOrder] = useState("asc");
+  const [sortBy, setSortBy] = useState("date");
+  const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     setIsLoading(false);
@@ -38,57 +38,57 @@ export default function Articles() {
     }
   }, []);
 
-  // const handleSort = (option) => {
-  //   if (sortBy === option) {
-  //     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-  //   } else {
-  //     setSortBy(option);
-  //     setSortOrder("asc");
-  //   }
-  // };
+  const handleSort = (option) => {
+    if (sortBy === option) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortBy(option);
+      setSortOrder("asc");
+    }
+  };
 
-  // let sortedArticles = [...articles];
-  // sortedArticles = sortArrayByField(
-  //   sortedArticles,
-  //   sortBy === "date" ? "created_at" : sortBy,
-  //   sortOrder
-  // );
-
+  let sortedArticles = [...articles];
+  sortedArticles = sortArrayByField(
+    sortedArticles,
+    sortBy === "date" ? "created_at" : sortBy,
+    sortOrder
+  );
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
 
   return (
-    // <div>
-    //   <div className="sorting">
-    //     <div className="sortBy">
-    //       <label>Sort By:</label>
-    //       <select onChange={(e) => handleSort(e.target.value)} value={sortBy}>
-    //         <option value="date">Date</option>
-    //         <option value="title">Title</option>
-    //         <option value="comment_count">Comment Count</option>
-    //         <option value="votes">Votes</option>
-    //       </select>
-    //     </div>
-    //     <div className="sortOrder">
-    //       <label>Sort Order:</label>
-    //       <select
-    //         onChange={(e) => setSortOrder(e.target.value)}
-    //         value={sortOrder}
-    //       >
-    //         <option value="asc">Ascending</option>
-    //         <option value="desc">Descending</option>
-    //       </select>
-    //     </div>
-    //   </div>
+    <div>
+      <div className="sorting">
+        <div className="sortBy">
+          <label>Sort By:</label>
+          <select onChange={(e) => handleSort(e.target.value)} value={sortBy}>
+            <option value="date">Date</option>
+            <option value="title">Title</option>
+            {/* <option value="comment_count">Comment Count</option> */}
+            <option value="votes">Votes</option>
+          </select>
+        </div>
+        <div className="sortOrder">
+          <label>Sort Order:</label>
+          <select
+            onChange={(e) => setSortOrder(e.target.value)}
+            value={sortOrder}
+          >
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+      </div>
+      <h3>Choose an article to read more</h3>
       <div className="articlesContainer">
-        {articles.map((article) => {
+        {sortedArticles.map((article) => {
           return (
             <Link
               key={article.article_id}
               to={`/articles/${article.article_id}`}
             >
               <div className="article" key={article.article_id}>
-                <p>{article.title}</p>
+                <div className="articleTitle">{article.title}</div>
                 <img
                   className="image"
                   src={article.article_img_url}
@@ -99,6 +99,7 @@ export default function Articles() {
           );
         })}
       </div>
-    // </div>
+      //{" "}
+    </div>
   );
 }

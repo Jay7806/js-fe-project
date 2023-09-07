@@ -1,20 +1,23 @@
-.topicsContainer{
-    display: flex;
-    justify-content: center;
+.topicsContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
-.headerHome{
-text-align: center;
+.headerHome {
+  text-align: center;
 }
-.subHeader{
-text-align: center;
+.subHeader {
+  text-align: center;
 }
-.header3{
-    text-align: center;
+.header3 {
+  text-align: center;
 }
 
 .button {
-  height: 50px;
-  width: 200px;
+  height: 40px;
+  width: 125px;
   position: relative;
   background-color: transparent;
   cursor: pointer;
@@ -54,4 +57,11 @@ text-align: center;
 .type1:hover::after {
   visibility: visible;
   transform: scale(100) translateX(2px);
+}
+@media only screen and (min-width: 600px) {
+  .App {
+    grid-template-columns: 30% 70%;
+    grid-template-rows: min-content auto;
+    grid-template-areas: "article" "article img";
+  }
 }

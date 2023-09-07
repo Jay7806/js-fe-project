@@ -39,13 +39,14 @@ export default function Comments() {
   if (isError) return <p>Something went wrong</p>;
 
   return (
-    <div className="commentsContainer" key={article_id}>
-      <h1>Comments</h1>
+    <div className="commentsContainer" key={comments.created_at}>
+      <h1 className="commentsHeader">Comments</h1>
       {comments.map((comment) => {
         return (
           <div key={comment.comment_id}>
             <ul className="comments">
               <p>{comment.body}</p>
+              <span className="time-left">{comment.created_at}</span>
               <div className="comment-actions">
                 <CommentActions
                   comment_id={comment.comment_id}

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./CSS/Comments.css";
 
 const CommentActions = ({ comment_id, onDelete }) => {
   const handleDelete = () => {
@@ -14,8 +15,8 @@ const CommentActions = ({ comment_id, onDelete }) => {
   };
 
   return (
-    <div className="comment-actions">
-      <button className="comment-action" onClick={handleDelete}>
+    <div className="comment-actions" key={comment_id}>
+      <button className="menu__button" onClick={handleDelete}>
         Delete
       </button>
     </div>

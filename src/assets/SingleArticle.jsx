@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import "./CSS/SingleArticle.css";
 import Comments from "./Comments";
 
-
 export default function SingleArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
@@ -65,15 +64,12 @@ export default function SingleArticle() {
   return (
     <>
       <h2 className="Header">{article.title}</h2>
-      <p>Article Topic: {article.topic}</p>
+      <p className="subHeader">Article Topic: {article.topic}</p>
       <img className="image" src={article.article_img_url} />
       <p>{article.body}</p>
       <div className="extraInfo">
         <p>Author: {article.author}</p>
-        <button
-          className={`like-button ${voted ? "voted" : ""}`}
-          onClick={handleVote}
-        >
+        <button className="vote-button" onClick={handleVote}>
           Votes {votes}
         </button>
       </div>

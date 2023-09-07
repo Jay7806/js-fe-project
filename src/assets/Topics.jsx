@@ -34,7 +34,7 @@ const Topics = () => {
       {selectTopics.map((topics) => {
         return (
           <div className="topics" key={topics.article_id}>
-            <p>{topics.title}</p>
+            <p className="topicTitle">{topics.title}</p>
             <img src={topics.article_img_url} />
           </div>
         );

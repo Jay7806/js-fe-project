@@ -2,7 +2,7 @@ import "./CSS/Home.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./CSS/Header.css"
+import "./CSS/Header.css";
 
 const Home = () => {
   const [topics, setTopics] = useState([]);
@@ -55,8 +55,3 @@ const Home = () => {
 };
 
 export default Home;
-{
-  /* <button class="button type1">
-  <span class="btn-txt">Hello</span>
-</button>; */
-}

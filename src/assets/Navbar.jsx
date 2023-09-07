@@ -6,13 +6,12 @@ const Navbar = () => {
     <nav>
       <ul>
         <li>
-          <a className="Home" href="/home">Home</a>
+          <a className="Home" href="/home">
+            Home
+          </a>
         </li>
         <li>
           <a href="/articles">Articles</a>
-        </li>
-        <li>
-          <a href="/authors">Authors</a>
         </li>
         <li style={{ float: "right" }}>
           <a className="active" href="/users">

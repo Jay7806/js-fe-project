@@ -4,6 +4,12 @@
   gap: 0px;
   grid-auto-rows: minmax(100px, auto);
 }
+.userHeader{
+text-align: center;
+padding: auto;
+margin: 50px;
+}
+
 .users {
   padding-top: 3em;
   padding-bottom: 3em;

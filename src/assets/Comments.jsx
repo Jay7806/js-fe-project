@@ -16,9 +16,7 @@ export default function Comments() {
     setIsLoading(true);
     setIsError(false);
     axios
-      .get(
-        `${UrlBase}articles/${article_id}/comments`
-      )
+      .get(`${UrlBase}articles/${article_id}/comments`)
       .then((apiResponse) => {
         setComments(apiResponse.data.comments);
         setIsLoading(false);
@@ -39,16 +37,20 @@ export default function Comments() {
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
 
-  return (
+    return (
     <div className="commentsContainer" key={comments.created_at}>
       <h1 className="commentsHeader">Comments</h1>
       {comments.map((comment) => {
+        let date = comment.created_at.slice(0, 10)
+        let time = comment.created_at.slice(11, 16);
         return (
           <div key={comment.comment_id}>
             <ul className="comments">
               <p>{comment.body}</p>
               <p>Author: {comment.author}</p>
-              <span className="time-left">{comment.created_at}</span>
+              <span className="time-left">
+                {date} {time}
+              </span>
               <div className="comment-actions">
                 <CommentActions
                   comment_id={comment.comment_id}

@@ -1,22 +1,28 @@
 import { Link } from "react-router-dom";
 import "./CSS/Navbar.css";
+import { useContext } from "react";
+import { UserContext } from "./User";
 
 const Navbar = () => {
+  const {user} = useContext(UserContext)
   return (
     <nav>
       <ul>
         <li>
-          <a className="Home" href="/home">
+          <Link className="Home" to="/home">
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/articles">Articles</a>
+          <Link to="/articles">Articles</Link>
         </li>
         <li style={{ float: "right" }}>
-          <a className="active" href="/users">
+          <Link className="active" to="/users">
             Users
-          </a>
+          </Link>
+        </li>
+        <li style={{ float: "right" }}>
+          <a href="user" className="user">Signed in: {user}</a>
         </li>
       </ul>
     </nav>

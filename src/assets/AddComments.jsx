@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CSS/AddComment.css";
+import UrlBase from "./UrlBase";
 
 const AddComment = ({ setComments }) => {
   const { article_id } = useParams();

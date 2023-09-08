@@ -3,26 +3,21 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #970808;
+  background-color: #a41306f1;
 }
 
 li {
   float: left;
-  border-right: 1px solid #bbb;
+  border-right: 1px solid #ffffff;
 }
-
-li:last-child {
-  border-right: none;
-}
-
 li a {
   display: block;
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: #343434;
 }

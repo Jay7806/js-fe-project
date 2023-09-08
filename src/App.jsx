@@ -9,17 +9,17 @@ import GetUsers from "./assets/Users";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Navbar />
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/articles" element={<Articles />} />
-        <Route path="/articles/:article_id" element={<SingleArticle />} />
-        <Route path="/topics/:topics" element={<Articles />} />
-        <Route path="/users" element={<GetUsers />} />
-      </Routes>
-    </div>
+      <div>
+        <Header />
+        <Navbar />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/:article_id" element={<SingleArticle />} />
+          <Route path="/topics/:topics" element={<Articles />} />
+          <Route path="/users" element={<GetUsers />} />
+        </Routes>
+      </div>
   );
 }
 

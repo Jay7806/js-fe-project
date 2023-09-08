@@ -1,6 +1,16 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
 .Header {
   text-align: center;
   box-sizing: border-box;
-  font-size: 40px;
+  font-size: 60px;
   line-height: 40px;
+    width: 100%;
+  padding:60px 0;
+  text-align: center;
+  background: #a41306f1;
+  color: white;
+  font-family: 'Lato';
+}
+.content{
+  padding: 20px;
 }

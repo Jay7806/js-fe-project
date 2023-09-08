@@ -32,7 +32,8 @@ export default function Articles() {
           setArticles(apiResponse.data.article);
           setIsLoading(false);
         })
-        .catch(() => {
+        .catch((error) => {
+          setErrMsg(error.msg);
           setIsError(true);
           setIsLoading(false);
         });
@@ -55,7 +56,7 @@ export default function Articles() {
     sortOrder
   );
   if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Something went wrong</p>;
+  if (isError) return <p>Something went wrong: ${errMsg}</p>;
 
   return (
     <div>
@@ -65,7 +66,6 @@ export default function Articles() {
           <select onChange={(e) => handleSort(e.target.value)} value={sortBy}>
             <option value="date">Date</option>
             <option value="title">Title</option>
-            {/* <option value="comment_count">Comment Count</option> */}
             <option value="votes">Votes</option>
           </select>
         </div>

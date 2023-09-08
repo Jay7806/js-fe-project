@@ -12,6 +12,8 @@ export default function SingleArticle() {
   const [isError, setIsError] = useState(false);
   const [votes, setVotes] = useState(0);
   const [voted, setVoted] = useState(false);
+    const [errMsg, setErrMsg] = useState(false);
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,7 +26,8 @@ export default function SingleArticle() {
         setVotes(articleData.votes);
         setIsLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        setErrMsg(error.message);
         setIsError(true);
         setIsLoading(false);
       });
@@ -54,11 +57,11 @@ export default function SingleArticle() {
     }
   };
   if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Something went wrong</p>;
+  if (isError) return <p>An error has occured: {`${errMsg}`}</p>;
 
   return (
     <>
-      <h2 className="Header">{article.title}</h2>
+      <h2 className="articleHeader">{article.title}</h2>
       <p className="subHeader">Article Topic: {article.topic}</p>
       <img className="image" src={article.article_img_url} />
       <p>{article.body}</p>

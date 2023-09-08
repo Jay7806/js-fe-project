@@ -41,12 +41,12 @@ const GetUsers = () => {
             onClick={() => setUser(user.username)}
           >
             <button>
-              <img
-                className="userImg"
-                src={user.avatar_url}
-                alt={`Avatar for ${user.username}`}
-              />
-
+            <img
+              className="userImg"
+              src={user.avatar_url}
+              alt={`Avatar for ${user.username}`}
+            />
+            
               <div>Username: {user.username}</div>
               <div>Name: {user.name}</div>
             </button>

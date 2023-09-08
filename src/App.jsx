@@ -6,6 +6,7 @@ import Articles from "./assets/Articles";
 import Home from "./assets/Home";
 import SingleArticle from "./assets/SingleArticle";
 import GetUsers from "./assets/Users";
+import SingleUser from "./assets/SignInPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/articles/:article_id" element={<SingleArticle />} />
           <Route path="/topics/:topics" element={<Articles />} />
           <Route path="/users" element={<GetUsers />} />
+          <Route path="/user" element={<SingleUser />} /> 
         </Routes>
       </div>
   );

@@ -3,12 +3,15 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CSS/AddComment.css";
 import UrlBase from "./UrlBase";
+import { useContext } from "react";
+import { UserContext } from "./User";
 
 const AddComment = ({ setComments }) => {
   const { article_id } = useParams();
   const [newComment, setNewComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const { user } = useContext(UserContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +21,7 @@ const AddComment = ({ setComments }) => {
       return;
     }
 
-    const commentToAdd = { body: newComment, author: "jessjelly" };
+    const commentToAdd = { body: newComment, author: user };
     setNewComment("");
     setComments((currentComments) => {
       return [...currentComments, commentToAdd];

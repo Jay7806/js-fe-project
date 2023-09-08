@@ -37,22 +37,25 @@ export default function Comments() {
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
 
-    return (
-    <div className="commentsContainer" key={comments.created_at}>
+  return (
+    <div className="commentsContainer">
       <h1 className="commentsHeader">Comments</h1>
       {comments.map((comment) => {
-        let date = comment.created_at.slice(0, 10)
-        let time = comment.created_at.slice(11, 16);
+        const createdAt = new Date(comment.created_at);
+        const formattedDate = createdAt.toLocaleDateString();
+        const formattedTime = createdAt.toLocaleTimeString();
         return (
-          <div key={comment.comment_id}>
+          <div key={comment.created_at}>
             <ul className="comments">
               <p>{comment.body}</p>
               <p>Author: {comment.author}</p>
               <span className="time-left">
-                {date} {time}
+                {comments.created_at}
+                {formattedDate} {formattedTime}
               </span>
               <div className="comment-actions">
                 <CommentActions
+                  author={comment.author}
                   comment_id={comment.comment_id}
                   onDelete={handleCommentDelete}
                 />

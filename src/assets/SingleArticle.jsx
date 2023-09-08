@@ -12,8 +12,7 @@ export default function SingleArticle() {
   const [isError, setIsError] = useState(false);
   const [votes, setVotes] = useState(0);
   const [voted, setVoted] = useState(false);
-    const [errMsg, setErrMsg] = useState(false);
-
+  const [errMsg, setErrMsg] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -64,7 +63,7 @@ export default function SingleArticle() {
       <h2 className="articleHeader">{article.title}</h2>
       <p className="subHeader">Article Topic: {article.topic}</p>
       <img className="image" src={article.article_img_url} />
-      <p>{article.body}</p>
+      <p className="articleBody">{article.body}</p>
       <div className="extraInfo">
         <p>Author: {article.author}</p>
         <button className="vote-button" onClick={handleVote}>

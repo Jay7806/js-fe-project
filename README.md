@@ -1,12 +1,24 @@
-Information about my app: 
+# NC-News Website (Front-End)
 
-This is my project called 'News Bytes' which is a webpage that displays various articles and information about the article. You can navigate accross different pages starting at the homepage, you can click the quick link buttons on the homepage which will take you to a page with a variety of articles sorted by the category you choose, or you can click the articles tab which will give you a list of all articles.
+Information about my Project: 
 
-Use the User tab on the right of the Navbar to choose a user to sign in as. You can then navigate to the articles page and choose an article to view. Here you can read the article, see how many votes it has 
+"This is my project called 'News Bytes,' a webpage that displays various articles and provides information about each article. Users can navigate between different pages, starting at the homepage. You can click on the quick links on the homepage to access pages with articles sorted by the chosen category or click the 'Articles' tab to see a list of all articles.
 
+Use the 'User' tab on the right of the Navbar to select a user for signing in. Once signed in, you can visit the articles page and select an article to read. Here, you can read the article, leave comments, view who wrote each comment and when it was posted, and even delete a comment if needed. Additionally, you can vote on articles and see their current vote count."
 
+List of technologies used for this project:
 
+- **JavaScript**
+- **React** A JavaScript library used for building user interfaces.
+- **Axios** A popular library for making HTTP requests.
+- **Vite** A build tool and development server for modern web projects.
 
+To run this Project:
+
+1. Open your terminal and navigate to the project's directory.
+2. In the terminal run 'npm i' to install the required packages.
+3. In the terminal run 'npm run dev'
+4. Open the localhost link to view the project in the browser.
 
 
 # React + Vite
